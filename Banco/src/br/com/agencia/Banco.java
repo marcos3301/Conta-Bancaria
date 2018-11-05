@@ -11,29 +11,37 @@ import java.util.ArrayList;
  *
  * @author marcos
  */
-public class Banco implements Imprimivel{
+public class Banco implements Imprimivel {
+
     ArrayList<ContaBancaria> lista;
 
     public Banco() {
         this.lista = new ArrayList<>();
     }
-    
-    public boolean inserir(ContaBancaria cb){
+
+    public boolean inserir(ContaBancaria cb) {
         lista.add(cb);
         return true;
     }
-    
-    public boolean remover(ContaBancaria cb){
+
+    public boolean remover(ContaBancaria cb) {
         lista.remove(cb);
         return true;
     }
-    
-    public ContaBancaria procurarConta(int n){
+
+    public ContaBancaria procurarConta(int n) {
         return lista.get(n);
     }
 
     @Override
     public void mostrarDados() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("============== DADOS ==============");
+        for (ContaBancaria contaBancaria : lista) {
+            System.out.println("-----------------------------------");
+            System.out.println("Conta: " + contaBancaria.getNumeroConta());
+            System.out.printf("Saldo: %.2f\n", contaBancaria.getSaldo());
+            System.out.println("-----------------------------------");
+        }
+        System.out.println("===================================");
     }
 }
